@@ -173,10 +173,10 @@ def time_LineGraph(x, y):
     plt.xlabel('Algorithm')
     plt.ylabel('Execution Time')
 
-    if y[0] == blEncTime:
+    if y[0] == aesEncTime:
         plt.title('Encryption time comparison')
         plt.savefig("Encryption time comparison - Blowfish and Twofish.png")
-    elif y[0] == blDecTime:
+    elif y[0] == aesDecTime:
         plt.title('Decryption time comparison')
         plt.savefig("Decryption time comparison - Blowfish and Twofish.png")
 
@@ -195,7 +195,7 @@ def encTimeVsBlockSize():
     plt.ylabel('Encryption Time')
     plt.title('Encryption time vs Input block size')
     plt.legend()
-    #plt.savefig("encTimeVsBlockSize.png")
+    plt.savefig("encTimeVsBlockSize.png")
     plt.show()
     
 
@@ -210,7 +210,7 @@ def decTimeVsBlockSize():
     plt.ylabel('Decryption Time')
     plt.title('Decryption time vs Input block size')
     plt.legend()
-    #plt.savefig("decTimeVsBlockSize.png")
+    plt.savefig("decTimeVsBlockSize.png")
     plt.show()
     
 
@@ -223,7 +223,7 @@ def Encryption_aesVsblowfish():
     plt.ylabel('Encryption Time')
     plt.title('AES vs Blowfish Comparison: Encryption time-input block size')
     plt.legend()
-    #plt.savefig("Encryption_aesVsblowfish.png")
+    plt.savefig("Encryption_aesVsblowfish.png")
     plt.show()
     
 
@@ -236,7 +236,7 @@ def Decryption_aesVsblowfish():
     plt.ylabel('Decryption Time')
     plt.title('AES vs Blowfish Comparison: Decryption time-input block size')
     plt.legend()
-    #plt.savefig("Decryption_aesVsblowfish.png")
+    plt.savefig("Decryption_aesVsblowfish.png")
     plt.show()
     
 
@@ -249,7 +249,7 @@ def Encryption_desVs3des():
     plt.ylabel('Encryption Time')
     plt.title('DES vs 3DES Comparison: Encryption time-input block size')
     plt.legend()
-    #plt.savefig("Encryption_desVs3des.png")
+    plt.savefig("Encryption_desVs3des.png")
     plt.show()
     
 
@@ -262,7 +262,7 @@ def Decryption_desVs3des():
     plt.ylabel('Decryption Time')
     plt.title('DES vs 3DES Comparison: Decryption time-input block size')
     plt.legend()
-    #plt.savefig("Decryption_desVs3des.png")
+    plt.savefig("Decryption_desVs3des.png")
     plt.show()
     
 
@@ -270,27 +270,27 @@ def Decryption_desVs3des():
 text = input("\nEnter Text to be Encrypted: ")
 b_text = bytes(text, "utf-8")
 
-#aesEncTime, aesDecTime = AES_TimeAnalysis()  
-#desEncTime, desDecTime = DES_TimeAnalysis()
-#tdesEncTime, tdesDecTime = TripleDES_TimeAnalysis()
+aesEncTime, aesDecTime = AES_TimeAnalysis()  
+desEncTime, desDecTime = DES_TimeAnalysis()
+tdesEncTime, tdesDecTime = TripleDES_TimeAnalysis()
 blEncTime, blDecTime = Blowfish_TimeAnalysis()
-twEncTime, twDecTime = Twofish_TimeAnalysis()
+#twEncTime, twDecTime = Twofish_TimeAnalysis()
 print()
 
-#x = ['AES', 'DES', '3DES', 'Blowfish']
-x1=["Blowfish","Twofish"]
-y1_enc=[blEncTime,twEncTime]
-y1_dec=[blDecTime,twDecTime]
-#y_enc = [aesEncTime, desEncTime, tdesEncTime, blEncTime]
-#y_dec = [aesDecTime, desDecTime, tdesDecTime, blDecTime]
-#time_LineGraph(x, y_enc)
-#time_LineGraph(x, y_dec)
+x = ['AES', 'DES', '3DES', 'Blowfish']
+#x1=["Blowfish","Twofish"]
+#y1_enc=[blEncTime,twEncTime]
+#y1_dec=[blDecTime,twDecTime]
+y_enc = [aesEncTime, desEncTime, tdesEncTime, blEncTime]
+y_dec = [aesDecTime, desDecTime, tdesDecTime, blDecTime]
+time_LineGraph(x, y_enc)
+time_LineGraph(x, y_dec)
 
 time_LineGraph(x1, y1_enc)
 time_LineGraph(x1, y1_dec)
 
 
-'''blockSize = [16, 32, 64, 128, 256]
+blockSize = [16, 32, 64, 128, 256]
 
 aesEncTimes = []
 aesDecTimes = []
@@ -328,4 +328,4 @@ decTimeVsBlockSize()
 Encryption_aesVsblowfish()
 Decryption_aesVsblowfish()
 Encryption_desVs3des()
-Decryption_desVs3des()'''
+Decryption_desVs3des()
